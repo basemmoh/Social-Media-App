@@ -32,11 +32,10 @@ function LoginForm() {
     toast.promise(sendUserDataLogin(data), {
       loading: "Please Wait",
       success: function (data) {
+        localStorage.setItem("user_tkn", data.data.token);
 
-        localStorage.setItem("user_tkn", data.data.token)
-        
         setUserData(data.data.user);
-        
+
         router("/");
         return <h1 className="text-emerald-500 capitalize">{data.message}</h1>;
       },
@@ -49,7 +48,7 @@ function LoginForm() {
   return (
     <Form
       onSubmit={handleSubmit(sendUserData)}
-      className="flex w-2xl mx-auto flex-col gap-4 bg-white/60 p-10 rounded-4xl shadow-2xl mb-20"
+      className="flex w-full mx-auto flex-col gap-4 bg-white/60 p-6 sm:p-10 rounded-4xl shadow-2xl mb-20"
     >
       {/* email Input */}
       <TextField isRequired type="email" isInvalid={!!errors.email}>

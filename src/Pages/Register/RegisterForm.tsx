@@ -53,7 +53,7 @@ function RegisterForm() {
   return (
     <Form
       onSubmit={handleSubmit(handleRegister)}
-      className="flex w-96 flex-col gap-4 bg-white p-10 min-w-3xl my-10 rounded-4xl shadow-2xl"
+      className="flex w-full flex-col gap-4 bg-white p-6 sm:p-10 my-10 rounded-4xl shadow-2xl"
     >
       {/* Name Input */}
       <TextField isRequired type="text" isInvalid={!!errors.name}>
